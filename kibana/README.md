@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `ppc64le` builds of [the `kibana` official image](https://hub.docker.com/_/kibana) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,8 +26,9 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`7.16.2`](https://github.com/docker-library/kibana/blob/5ca74e65e55e6ad7722ec7889ca3b696a3274594/7/Dockerfile)
--	[`6.8.22`](https://github.com/docker-library/kibana/blob/d054cfa8b5dbb4ce60aa0ce04943a82fde49805c/6/Dockerfile)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `ppc64le` ARCHITECTURE
+
+[![ppc64le/kibana build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/kibana.svg?label=ppc64le/kibana%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/kibana/)
 
 # Quick reference (cont.)
 
