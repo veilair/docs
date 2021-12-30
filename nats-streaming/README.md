@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `s390x` builds of [the `nats-streaming` official image](https://hub.docker.com/_/nats-streaming) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # **DEPRECATION NOTICE**
 
 The NATS Streaming Server is being deprecated. Critical bug fixes and security fixes will be applied until June of 2023. NATS enabled applications requiring persistence should use [JetStream](https://docs.nats.io/jetstream/jetstream).
@@ -28,26 +30,9 @@ The NATS Streaming Server is being deprecated. Critical bug fixes and security f
 
 # Supported tags and respective `Dockerfile` links
 
-(See ["What's the difference between 'Shared' and 'Simple' tags?" in the FAQ](https://github.com/docker-library/faq#whats-the-difference-between-shared-and-simple-tags).)
+**WARNING:** THIS IMAGE *IS NOT SUPPORTED* ON THE `s390x` ARCHITECTURE
 
-## Simple Tags
-
--	[`0.23.2-alpine3.14`, `0.23-alpine3.14`, `alpine3.14`, `0.23.2-alpine`, `0.23-alpine`, `alpine`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/alpine3.14/Dockerfile)
--	[`0.23.2-scratch`, `0.23-scratch`, `scratch`, `0.23.2-linux`, `0.23-linux`, `linux`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/scratch/Dockerfile)
--	[`0.23.2-windowsservercore-1809`, `0.23-windowsservercore-1809`, `windowsservercore-1809`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/windowsservercore-1809/Dockerfile)
--	[`0.23.2-nanoserver-1809`, `0.23-nanoserver-1809`, `nanoserver-1809`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/nanoserver-1809/Dockerfile)
--	[`0.23.2-windowsservercore-ltsc2016`, `0.23-windowsservercore-ltsc2016`, `windowsservercore-ltsc2016`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/windowsservercore-ltsc2016/Dockerfile)
-
-## Shared Tags
-
--	`0.23.2`, `0.23`, `latest`:
-	-	[`0.23.2-scratch`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/scratch/Dockerfile)
-	-	[`0.23.2-nanoserver-1809`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/nanoserver-1809/Dockerfile)
--	`0.23.2-windowsservercore`, `0.23-windowsservercore`, `windowsservercore`:
-	-	[`0.23.2-windowsservercore-1809`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/windowsservercore-1809/Dockerfile)
-	-	[`0.23.2-windowsservercore-ltsc2016`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/windowsservercore-ltsc2016/Dockerfile)
--	`0.23.2-nanoserver`, `0.23-nanoserver`, `nanoserver`:
-	-	[`0.23.2-nanoserver-1809`](https://github.com/nats-io/nats-streaming-docker/blob/fdc63eac17da16ad27229b48561c1b3462f40ee3/0.23.2/nanoserver-1809/Dockerfile)
+[![s390x/nats-streaming build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/s390x/job/nats-streaming.svg?label=s390x/nats-streaming%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/s390x/job/nats-streaming/)
 
 # Quick reference (cont.)
 
@@ -83,13 +68,13 @@ Note that the Streaming server itself is backward compatible with previous relea
 Due to restrictions on how the Windows Docker Image is built, running the image without argument will run the NATS Streaming server with memory based store on port 4222 and the monitoring port 8222. If you need to specify any additional argument, or modify these options, you need to specify the executable name as this:
 
 ```bash
-$ docker run -p 4223:4223 -p 8223:8223 nats-streaming nats-streaming-server -p 4223 -m 8223
+$ docker run -p 4223:4223 -p 8223:8223 s390x/nats-streaming nats-streaming-server -p 4223 -m 8223
 ```
 
 If you need to specify the entrypoint:
 
 ```bash
-$ docker run --entrypoint c:/nats-streaming-server/nats-streaming-server -p 4222:4222 -p 8222:8222 nats-streaming
+$ docker run --entrypoint c:/nats-streaming-server/nats-streaming-server -p 4222:4222 -p 8222:8222 s390x/nats-streaming
 ```
 
 # Non Windows Docker images
@@ -97,13 +82,13 @@ $ docker run --entrypoint c:/nats-streaming-server/nats-streaming-server -p 4222
 If you need to provide arguments to the NATS Streaming server, just pass them to the command line. For instance, to change the listen and monitoring port to 4223 and 8223 respectively:
 
 ```bash
-$ docker run -p 4223:4223 -p 8223:8223 nats-streaming -p 4223 -m 8223
+$ docker run -p 4223:4223 -p 8223:8223 s390x/nats-streaming -p 4223 -m 8223
 ```
 
 If you need to specify the entrypoint:
 
 ```bash
-$ docker run --entrypoint /nats-streaming-server -p 4222:4222 -p 8222:8222 nats-streaming
+$ docker run --entrypoint /nats-streaming-server -p 4222:4222 -p 8222:8222 s390x/nats-streaming
 ```
 
 # Example usage
@@ -122,15 +107,15 @@ $ docker run --entrypoint /nats-streaming-server -p 4222:4222 -p 8222:8222 nats-
 # For instance, to run the NATS Streaming Server and have it listen on port 4444,
 # you would have to run like this:
 #
-#   docker run -p 4444:4444 nats-streaming -p 4444
+#   docker run -p 4444:4444 s390x/nats-streaming -p 4444
 #
 # Or, if you want to publish the port 4444 as a different port, for example 5555:
 #
-#   docker run -p 5555:4444 nats-streaming -p 4444
+#   docker run -p 5555:4444 s390x/nats-streaming -p 4444
 #
 # Check "docker run" for more information.
 
-$ docker run -d -p 4222:4222 -p 8222:8222 nats-streaming
+$ docker run -d -p 4222:4222 -p 8222:8222 s390x/nats-streaming
 ```
 
 Output that you would get if you had started with `-ti` instead of `d` (for daemon):
@@ -166,7 +151,7 @@ Output that you would get if you had started with `-ti` instead of `d` (for daem
 To use a file based store instead, you would run:
 
 ```bash
-$ docker run -d -p 4222:4222 -p 8222:8222 nats-streaming -store file -dir datastore
+$ docker run -d -p 4222:4222 -p 8222:8222 s390x/nats-streaming -store file -dir datastore
 
 [1] 2021/10/15 18:16:09.104896 [INF] STREAM: Starting nats-streaming-server[test-cluster] version 0.23.0
 [1] 2021/10/15 18:16:09.104949 [INF] STREAM: ServerID: vKakx9CW8p0jjXVbyhb2Ir
@@ -204,7 +189,7 @@ $ docker run -d --name=nats-main -p 4222:4222 -p 6222:6222 -p 8222:8222 nats
 Now, start the Streaming server and link it to the above docker image:
 
 ```bash
-$ docker run -d --link nats-main nats-streaming -store file -dir datastore -ns nats://nats-main:4222
+$ docker run -d --link nats-main s390x/nats-streaming -store file -dir datastore -ns nats://nats-main:4222
 
 [1] 2021/10/15 18:16:26.279927 [INF] STREAM: Starting nats-streaming-server[test-cluster] version 0.23.0
 [1] 2021/10/15 18:16:26.280003 [INF] STREAM: ServerID: S7LNp4pQhtQBZxHmkZPiqx
@@ -349,31 +334,6 @@ Common Options:
 # Configuration
 
 Details on how to configure further the NATS Streaming server can be found [here](https://docs.nats.io/nats-streaming-server/configuring)
-
-# Image Variants
-
-The `nats-streaming` images come in many flavors, each designed for a specific use case.
-
-## `nats-streaming:<version>`
-
-This is the defacto image. If you are unsure about what your needs are, you probably want to use this one. It is designed to be used both as a throw away container (mount your source code and start the container to start your app), as well as the base to build other images off of.
-
-## `nats-streaming:<version>-alpine`
-
-This image is based on the popular [Alpine Linux project](https://alpinelinux.org), available in [the `alpine` official image](https://hub.docker.com/_/alpine). Alpine Linux is much smaller than most distribution base images (~5MB), and thus leads to much slimmer images in general.
-
-This variant is useful when final image size being as small as possible is your primary concern. The main caveat to note is that it does use [musl libc](https://musl.libc.org) instead of [glibc and friends](https://www.etalabs.net/compare_libcs.html), so software will often run into issues depending on the depth of their libc requirements/assumptions. See [this Hacker News comment thread](https://news.ycombinator.com/item?id=10782897) for more discussion of the issues that might arise and some pro/con comparisons of using Alpine-based images.
-
-To minimize image size, it's uncommon for additional related tools (such as `git` or `bash`) to be included in Alpine-based images. Using this image as a base, add the things you need in your own Dockerfile (see the [`alpine` image description](https://hub.docker.com/_/alpine/) for examples of how to install packages if you are unfamiliar).
-
-## `nats-streaming:<version>-windowsservercore`
-
-This image is based on [Windows Server Core (`microsoft/windowsservercore`)](https://hub.docker.com/r/microsoft/windowsservercore/). As such, it only works in places which that image does, such as Windows 10 Professional/Enterprise (Anniversary Edition) or Windows Server 2016.
-
-For information about how to get Docker running on Windows, please see the relevant "Quick Start" guide provided by Microsoft:
-
--	[Windows Server Quick Start](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server)
--	[Windows 10 Quick Start](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_10)
 
 # License
 

@@ -14,6 +14,8 @@ WARNING:
 
 -->
 
+**Note:** this is the "per-architecture" repository for the `s390x` builds of [the `ubuntu` official image](https://hub.docker.com/_/ubuntu) -- for more information, see ["Architectures other than amd64?" in the official images documentation](https://github.com/docker-library/official-images#architectures-other-than-amd64) and ["An image's source changed in Git, now what?" in the official images FAQ](https://github.com/docker-library/faq#an-images-source-changed-in-git-now-what).
+
 # Quick reference
 
 -	**Maintained by**:  
@@ -24,13 +26,14 @@ WARNING:
 
 # Supported tags and respective `Dockerfile` links
 
--	[`18.04`, `bionic-20210930`, `bionic`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/bionic/Dockerfile)
--	[`20.04`, `focal-20211006`, `focal`, `latest`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/focal/Dockerfile)
--	[`21.04`, `hirsute-20211107`, `hirsute`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/hirsute/Dockerfile)
--	[`21.10`, `impish-20211102`, `impish`, `rolling`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/impish/Dockerfile)
--	[`22.04`, `jammy-20211122`, `jammy`, `devel`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/jammy/Dockerfile)
--	[`14.04`, `trusty-20191217`, `trusty`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/trusty/Dockerfile)
--	[`16.04`, `xenial-20210804`, `xenial`](https://github.com/tianon/docker-brew-ubuntu-core/blob/bf61e139e84e04f9d87fff5dc588a3f0398da627/xenial/Dockerfile)
+-	[`18.04`, `bionic-20210930`, `bionic`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/bionic/Dockerfile)
+-	[`20.04`, `focal-20211006`, `focal`, `latest`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/focal/Dockerfile)
+-	[`21.04`, `hirsute-20211107`, `hirsute`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/hirsute/Dockerfile)
+-	[`21.10`, `impish-20211102`, `impish`, `rolling`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/impish/Dockerfile)
+-	[`22.04`, `jammy-20211122`, `jammy`, `devel`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/jammy/Dockerfile)
+-	[`16.04`, `xenial-20210804`, `xenial`](https://github.com/tianon/docker-brew-ubuntu-core/blob/019f4f20face8c498d7e9802cddf37bea18589a7/xenial/Dockerfile)
+
+[![s390x/ubuntu build status badge](https://img.shields.io/jenkins/s/https/doi-janky.infosiftr.net/job/multiarch/job/s390x/job/ubuntu.svg?label=s390x/ubuntu%20%20build%20job)](https://doi-janky.infosiftr.net/job/multiarch/job/s390x/job/ubuntu/)
 
 # Quick reference (cont.)
 
@@ -65,9 +68,9 @@ Development of Ubuntu is led by Canonical Ltd. Canonical generates revenue throu
 
 This image is built from official rootfs tarballs provided by Canonical (specifically, https://partner-images.canonical.com/oci/ for Bionic and later and https://partner-images.canonical.com/core/ for older releases).
 
-The `ubuntu:latest` tag points to the "latest LTS", since that's the version recommended for general use. The `ubuntu:rolling` tag points to the latest release (regardless of LTS status).
+The `s390x/ubuntu:latest` tag points to the "latest LTS", since that's the version recommended for general use. The `s390x/ubuntu:rolling` tag points to the latest release (regardless of LTS status).
 
-Along a similar vein, the `ubuntu:devel` tag is an alias for whichever release the "devel" suite on the mirrors currently points to, as determined by the following one-liner: `wget -qO- http://archive.ubuntu.com/ubuntu/dists/devel/Release | awk -F ': ' '$1 == "Codename" { print $2; exit }'`
+Along a similar vein, the `s390x/ubuntu:devel` tag is an alias for whichever release the "devel" suite on the mirrors currently points to, as determined by the following one-liner: `wget -qO- http://archive.ubuntu.com/ubuntu/dists/devel/Release | awk -F ': ' '$1 == "Codename" { print $2; exit }'`
 
 ## Locales
 
